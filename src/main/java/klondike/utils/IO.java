@@ -5,45 +5,45 @@ import java.io.InputStreamReader;
 
 public class IO {
 
-	private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
+	static private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
 			System.in));
 
-	public String readString(String title) {
+	static public String readString(String title) {
 		String input = null;
 		boolean ok = false;
 		do {
-			this.write(title);
+			write(title);
 			try {
 				input = bufferedReader.readLine();
 				ok = true;
 			} catch (Exception ex) {
-				this.writeError("de cadena de caracteres");
+				writeError("de cadena de caracteres");
 			}
 		} while (!ok);
 		return input;
 	}
 
-	public int readInt(String title) {
+	static public int readInt(String title) {
 		int input = 0;
 		boolean ok = false;
 		do {
 			try {
-				input = Integer.parseInt(this.readString(title));
+				input = Integer.parseInt(readString(title));
 				ok = true;
 			} catch (Exception ex) {
-				this.writeError("entero");
+				writeError("entero");
 			}
 		} while (!ok);
 		return input;
 	}
 
-	public char readChar(String title) {
+	static public char readChar(String title) {
 		char charValue = ' ';
 		boolean ok = false;
 		do {
-			String input = this.readString(title);
+			String input = readString(title);
 			if (input.length() != 1) {
-				this.writeError("caracter");
+				writeError("caracter");
 			} else {
 				charValue = input.charAt(0);
 				ok = true;
@@ -52,19 +52,19 @@ public class IO {
 		return charValue;
 	}
 
-	public void writeln() {
+	static public void writeln() {
 		System.out.println();
 	}
-	
-	public void write(String string) {
+
+	static public void write(String string) {
 		System.out.print(string);
 	}
 
-	public void writeln(String string) {
+	static public void writeln(String string) {
 		System.out.println(string);
 	}
 
-	private void writeError(String formato) {
+	static private void writeError(String formato) {
 		System.out.println("ERROR!!! La opcion debe ser entre 1 y 9 inclusives");
 	}
 }
