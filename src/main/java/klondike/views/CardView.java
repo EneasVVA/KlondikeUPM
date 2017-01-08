@@ -10,6 +10,6 @@ public class CardView {
 	private String cardToString(){
 		
 		
-		return "[" + number + "," + face "]";
+		return "[" + number + "," + face + "]";
 	}
 }
